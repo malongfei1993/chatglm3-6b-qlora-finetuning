@@ -33,7 +33,54 @@ finetuing前后对比
 ---
 推理
 ---
-* chatglm3-peft-inference.ipynb 微调前后结果对比：
+* chatglm3-peft-inference.ipynb，可以看到，微调后的输出参数提取的更加准确，比如水平分辨率也能正确提取，同时格式固定，方便进行后续提取分析。
+* 微调前后结果对比(截取部分内容)：
+```python
+原始输出：
+[{
+"参数": "Screen size min. (diagonal)",
+"需求规格": "12.1",
+"供应商反馈": "OK"
+}]
 
+
+ChatGLM3-6B微调后：
+{
+"参数": "diagonal size",
+"需求规格": "12.1",
+"供应商反馈": "OK"
+}
+
+原始输出：
+[{
+"参数":"horizontal resolution",
+"需求规格":"1280 x 800",
+"供应商反馈": "OK"
+}]
+
+
+ChatGLM3-6B微调后：
+{
+"参数": "horizontal resolution",
+"需求规格": "1280",
+"供应商反馈": "OK"
+}
+
+
+原始输出：
+[{
+"参数": "frame rate",
+"需求规格": "It should be 50/60 Hz",
+"供应商反馈": "It should be 60HZ"
+}]
+
+
+ChatGLM3-6B微调后：
+{
+"参数": "frame rate",
+"需求规格": "50/60 Hz",
+"供应商反馈": "60HZ"
+}
+```
 
 
